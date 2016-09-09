@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>D3 Example</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/worldpop.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+
+
+<body>
+
+  <nav class="navbar" style="background-color: #e3f2fd; opacity: 0.5;">
+    <!-- Navbar content -->
+    <a class="navbar-brand" href="#">GeoPopulationPlot</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="scriblrd3.html">ScriblrD3.js</a>
+      </li>
+      <li class="nav-item">
+        <a target="_blank" class="nav-link" href="https://github.com/peterarul">Git</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div id="container">
+      <div id="inner-container">
+        <div id="header">WORLD POPULATION GEO PLOT</div>
+        <div id="description">The world population has grown from just over 3 billion to nearly 7 billion over the past five decades. Each pixel represents 1 million people.</div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="text-align: justify; padding: 20px; font-size:20px;">
+    <div class="top">
+      <a href="javascript://" onclick="makeRequestRawCsv()">View Raw CSV(Sample)</a>
+      <div id="viewcsv"></div>
+    </div>
+  </div>
+  <div class="container" style="text-align: justify; padding: 20px; font-size:20px;">
+    <div class="top">
+      <a href="javascript://" onclick="makeRequestScript()">View D3 Script</a>
+      <div id="viewd3"></div>
+    </div>
+  </div>
+  <div class="container" style="text-align: justify; padding: 20px; font-size:20px;">
+    <div class="top">
+      <a target="_blank" href="https://github.com/curran/screencasts/tree/gh-pages/introToD3">View Tutorial By Curran Kelleher</a>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    var http_request = new XMLHttpRequest();
+
+    function makeRequestRawCsv() {
+      http_request.onreadystatechange = handleCheckboxRequest;
+      http_request.open('GET', 'sample.csv', true);
+      http_request.send(null);
+    }
+
+    function handleCheckboxRequest() {
+      if (http_request.readyState == 4 && http_request.status == 200) {
+        document.getElementById('viewcsv').innerHTML = http_request.responseText;
+      }
+    }
+  </script>
+  <script type="text/javascript">
+    var http_request = new XMLHttpRequest();
+
+    function makeRequestScript() {
+      http_request.onreadystatechange = handleCheckboxRequest;
+      http_request.open('GET', 'script.txt', true);
+      http_request.send(null);
+    }
+
+    function handleCheckboxRequest() {
+      if (http_request.readyState == 4 && http_request.status == 200) {
+        document.getElementById('viewd3').innerHTML = http_request.responseText;
+      }
+    }
+  </script>
+  <script type="text/javascript" src="js/geoplot.js"></script>
+</body>
+
+</html>

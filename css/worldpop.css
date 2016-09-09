@@ -1,0 +1,68 @@
+svg {
+  background-color: black;
+}
+
+circle {
+  fill: red;
+  animation: pulse 10s ease infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    fill: aqua;
+  }
+  25% {
+    fill: #19B5FE;
+  }
+  50% {
+    fill: #ff3300;
+  }
+  75% {
+    fill: #ccff00;
+  }
+  100% {
+    fill: white;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  align-items: center;
+  font: 10px sans-serif;
+  justify-content: center;
+}
+
+#container {
+  width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+  border: 1px solid #eee;
+}
+
+#inner-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+}
+
+#header {
+  font-size: 20px;
+  font-weight: bold;
+  color: azure;
+}
+
+#description {
+  position: absolute;
+  width: 270px;
+  right: 0;
+  top: 530px;
+  line-height: 1.6em;
+  color: azure;
+}
